@@ -32,7 +32,7 @@ class Prodi extends BaseController
 
         if (!$this->validate($rules)) {
             session()->setFlashdata('error', 'Data gagal disimpan');
-            return redirect()->to('prrofil')->withInput();
+            return redirect()->to('prodi')->withInput();
         }
 
         $data = [
@@ -67,6 +67,14 @@ class Prodi extends BaseController
 
     public function delete($id_prodi)
     {
+
+        $data = cekDataTerpakai('tabel_mahasiswa', ['id_prodi' => $id_prodi]);
+
+        if ($data) {
+            session()->setFlashdata('error', 'Data gagal dihapus, data sedang digunakan');
+            return redirect()->to('prodi');
+        }
+
         $this->prodiModel->delete($id_prodi);
         session()->setFlashdata('success', 'Data berhasil dihapus');
         return redirect()->to('prodi');

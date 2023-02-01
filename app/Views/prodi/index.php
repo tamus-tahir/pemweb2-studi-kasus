@@ -33,7 +33,11 @@
                             Ubah
                         </button>
 
-                        <a class="btn btn-danger" href="/prodi/delete/<?= $row['id_prodi']; ?>" role="button" id="button-delete">Hapus</a>
+                        <?php $data  = cekDataTerpakai('tabel_mahasiswa', ['id_prodi' => $row['id_prodi']]); ?>
+
+                        <?php if (!$data) : ?>
+                            <a class="btn btn-danger" href="/prodi/delete/<?= $row['id_prodi']; ?>" role="button" id="button-delete">Hapus</a>
+                        <?php endif ?>
                     </td>
                 </tr>
             <?php endforeach ?>
