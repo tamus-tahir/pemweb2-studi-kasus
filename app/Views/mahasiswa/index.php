@@ -14,7 +14,7 @@
 </div>
 
 <div class="table-responsive">
-    <table class="table table-hover table-bordered" id="data-table">
+    <table class="table table-hover table-bordered" id="export-table">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -149,7 +149,21 @@
 
 <?= $this->section('script'); ?>
 <script>
-    $('#data-table').on('click', '#btn-update', function() {
+    $(document).ready(function() {
+        $('#export-table').DataTable({
+            dom: 'Bfrtip',
+            buttons: [{
+                extend: 'excel',
+                text: 'Export Excel',
+                className: 'btn btn-info float-end ms-3 mb-3',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4]
+                }
+            }]
+        });
+    });
+
+    $('#export-table').on('click', '#btn-update', function() {
         let id = $(this).data('id')
         $('#form').attr('action', '/mahasiswa/update/' + id)
 

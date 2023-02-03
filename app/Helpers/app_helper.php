@@ -60,3 +60,24 @@ function cekDataTerpakai($tabel, $where)
         return true;
     }
 }
+
+function kodeBuku()
+{
+    $db = \Config\Database::connect();
+    $data  = $db->table('tabel_buku')
+        ->selectMax('kode')
+        ->get()
+        ->getRowArray();
+
+    $kode = $data['kode'];
+
+    if ($kode) {
+        $strToArray = explode('-', $kode);
+        $kode = $strToArray[1] + 1;
+    } else {
+        $kode = 1;
+    }
+
+    $kodeBaru = 'PU-' . sprintf("%06s", $kode);
+    return $kodeBaru;
+}
