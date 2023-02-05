@@ -33,7 +33,7 @@
         <label for="sampul" class="form-label">Upload sampul <span class="text-danger">(Type File PNG/JPG/JPEG, Max Size 500kb, Potrait)</span></label>
         <input class="form-control <?= $validation->hasError('sampul') ? 'is-invalid' : ''; ?>" type="file" id="upload" name="sampul">
         <div class="invalid-feedback"><?= $validation->getError('sampul') ? $validation->getError('sampul') : 'Please choose a sampul.'; ?></div>
-        <img src="/assets/img/noprofil.png" alt="" height="300" width="30%" class="rounded mt-3" id="prev">
+        <img src="/assets/img/book-cover.png" alt="" height="300" width="30%" class="rounded mt-3" id="prev">
     </div>
 
     <div class="col-12">

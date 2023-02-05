@@ -34,7 +34,7 @@
         <div class="valid-feedback">Looks good!</div>
         <div class="invalid-feedback"><?= $validation->getError('sampul') ?></div>
         <div class="mt-3">
-            <img id="prev" src="/assets/<?= $buku['sampul'] ? 'buku/' . $buku['sampul'] : 'img/noprofil.png'; ?>" height="300" width="30%" class="rounded">
+            <img id="prev" src="/assets/<?= $buku['sampul'] ? 'buku/' . $buku['sampul'] : 'img/book-cover.png'; ?>" height="300" width="30%" class="rounded">
         </div>
     </div>
 
